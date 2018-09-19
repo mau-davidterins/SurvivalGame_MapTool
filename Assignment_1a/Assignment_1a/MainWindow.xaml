@@ -8,7 +8,7 @@
         
         mc:Ignorable="d"
         d:DataContext="{d:DesignData Type=ViewModels:MainWindowViewModel, IsDesignTimeCreatable=True}"
-        Title="MainWindow" Height="700" Width="1000"
+        Title="MainWindow" Height="700" Width="1200"
 				Background="#77474747">
 	<Window.Resources>
 		<ViewModels:MainWindowViewModel x:Key="MainViewModel"/>
@@ -40,7 +40,7 @@
 
 	</Window.Resources>
 	<DockPanel DataContext="{StaticResource MainViewModel}" Margin="0,40,0,0" Background="#77474747">
-		<StackPanel Width="Auto" MinWidth="500" DockPanel.Dock="Left" Background="LightGray" Margin="10">
+		<StackPanel Width="Auto" MinWidth="300" DockPanel.Dock="Left" Background="LightGray" Margin="10">
 			<Label Content="Search" Foreground="White" Background="#474747" Height="24" />
 			<TextBox Text="{Binding SearchFilter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 			<ListView  ItemsSource="{Binding CollectionView}" SelectedItem="{Binding HouseViewModel, Mode=TwoWay}">
@@ -55,7 +55,7 @@
 			<Label Height="24">
 				<Label.Style>
 					<Style TargetType="{x:Type Label}">
-						<Setter Property="Content" Value="Add House" />
+						<Setter Property="Content" Value="Add Object" />
 						<Setter Property="Foreground" Value="White"/>
 						<Setter Property="Background" Value="#77474747"/>
 						<Style.Triggers>
@@ -81,18 +81,19 @@
 					<ColumnDefinition Width="Auto"/>
 					<ColumnDefinition Width="Auto"/>
 				</Grid.ColumnDefinitions>
-				<TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Info" Background="#77474747" Height="24" Style="{StaticResource HeaderTextBlockStyle}"/>
+				<TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Object Info" Background="#77474747" Height="24" Style="{StaticResource HeaderTextBlockStyle}"/>
 				<StackPanel Grid.Row="1" Grid.Column="0" >
 					<TextBlock Text="Category" Height="24"/>
-					<TextBlock Text="ResidentBuildings"  Height="24"/>
+					<TextBlock Text="Dimensions"  Height="24"/>
 					<TextBlock Text="CommercialBuilding"  Height="24"/>
 					<TextBlock Text="Legal Form"  Height="24"/>
 					<TextBlock Text="ID"  Height="24"/>
 				</StackPanel>
 				<StackPanel  Grid.Row="1" Grid.Column="1">
 					<ComboBox  SelectedItem="{Binding Category, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" Height="24">
-						<ComboBoxItem Content="Residential"/>
-						<ComboBoxItem Content="Commercial"/>
+						<ComboBoxItem Content="Building"/>
+						<ComboBoxItem Content="NPC"/>
+						<ComboBoxItem Content="Vegetation"/>
 					</ComboBox>
 					<ComboBox SelectedItem="{Binding ResidentialBuildings, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Width="100" Height="24" >
 						<ComboBoxItem Content="Houses"/>
@@ -138,7 +139,7 @@
 					<Button.Style>
 						<Style TargetType="{x:Type Button}" BasedOn="{StaticResource AddButtonStyle}">
 							<Setter Property="Command" Value="{Binding AddHouseCommand}"/>
-							<Setter Property="Content" Value="Add House" />
+							<Setter Property="Content" Value="Add Object" />
 							<Setter Property="Foreground" Value="White"/>
 							<Setter Property="Background" Value="#77474747"/>
 							<Style.Triggers>
@@ -153,6 +154,9 @@
 				</Button>
 			</Grid>
 		</StackPanel>
+		<Views:MapView Margin="50">
+			
+		</Views:MapView>
 
 	</DockPanel>
 </Window>

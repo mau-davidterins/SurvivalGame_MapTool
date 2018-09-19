@@ -125,10 +125,10 @@ namespace Assignment_1a.ViewModels
 		{
 			houses = new HouseViewModelCollection();
 			HouseRepresentationViewModel h = new HouseRepresentationViewModel();
-			h.HouseBase = new House("lolID")
+			h.HouseBase = new House("ID_123")
 			{
 				HouseAdress = new Adress("lolStreet", 23311, "lolCity", Country.Argentina),
-				Category = "Residential",
+				Category = "Building",
 				ResidentialBuldings = "Villas",
 				CommercialBuilding = "Ship",
 				LegalForm = "OwnerShip"
