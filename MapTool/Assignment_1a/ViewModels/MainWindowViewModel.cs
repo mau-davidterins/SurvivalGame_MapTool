@@ -25,36 +25,36 @@ namespace Assignment_1a.ViewModels
 			}
 		}
 
-		string _residentialBuildings;
-		public string ResidentialBuildings
+		int _height;
+		public int Heigth
 		{
-			get => _residentialBuildings;
+			get => _height;
 			set
 			{
-				_residentialBuildings = Helper.ConvertComobboxItemTotext(value);
-				OnPropertyChanged(nameof(ResidentialBuildings));
+				_height = value;
+				OnPropertyChanged(nameof(Heigth));
 			}
 		}
 
-		string _commercialBuilding;
-		public string CommercialBuilding
+		int _width;
+		public int Width
 		{
-			get => _commercialBuilding;
+			get => _width;
 			set
 			{
-				_commercialBuilding = Helper.ConvertComobboxItemTotext(value);
-				OnPropertyChanged(nameof(CommercialBuilding));
+				_width = value;
+				OnPropertyChanged(nameof(Width));
 			}
 		}
 
-		string _legalForm;
-		public string LegalForm
+		string __prefabName;
+		public string PrefabName
 		{
-			get => _legalForm;
+			get => __prefabName;
 			set
 			{
-				_legalForm = Helper.ConvertComobboxItemTotext(value);
-				OnPropertyChanged(nameof(LegalForm));
+				__prefabName = value;
+				OnPropertyChanged(nameof(PrefabName));
 			}
 		}
 
@@ -117,21 +117,24 @@ namespace Assignment_1a.ViewModels
 			}
 		}
 
-		private CollectionViewSource houseCollection;
+		MapViewModel _mapViewModel;
+		public MapViewModel MapViewModel { get { return _mapViewModel; } }
 
-		public Adress HouseAdress { get; set; }
+		private CollectionViewSource houseCollection;
 
 		public MainWindowViewModel()
 		{
+			_mapViewModel = new MapViewModel();
+
 			houses = new HouseViewModelCollection();
 			HouseRepresentationViewModel h = new HouseRepresentationViewModel();
 			h.HouseBase = new House("ID_123")
 			{
-				HouseAdress = new Adress("lolStreet", 23311, "lolCity", Country.Argentina),
+
 				Category = "Building",
-				ResidentialBuldings = "Villas",
-				CommercialBuilding = "Ship",
-				LegalForm = "OwnerShip"
+				Width = 40,
+				Height = 40,
+				PrefabName = "TestObject"
 			};
 
 			houses.Add(h);
@@ -140,28 +143,28 @@ namespace Assignment_1a.ViewModels
 			houseCollection.Source = houses;
 
 			houses.OnCollectionItemEdited += Houses_OnCollectionItemEdited;
+			houses.OnAddedObjectToMap += Houses_OnAddedObjectToMap;
 			houseCollection.Filter += usersCollection_Filter;
 			AddImageCommand = new ActionCommand(AddImage);
 			AddHouseCommand = new ActionCommand(AddHouse);
 			FinishEditCommand = new ActionCommand(FinishEdit);
 		}
 
-
+		private void Houses_OnAddedObjectToMap(object sender, EventArgs e)
+		{
+			var mapObject = (HouseRepresentationViewModel)sender;
+			MapViewModel.Items.Add(mapObject.ConvertToMapObject());
+		}
 
 		private void Houses_OnCollectionItemEdited(object sender, EventArgs e)
 		{
 			var itemToEdit = (HouseRepresentationViewModel)sender;
 			HouseViewModel = itemToEdit;
 			ID = itemToEdit.HouseBase.ID;
-			Category = itemToEdit.HouseBase.Category;
-			CommercialBuilding = itemToEdit.HouseBase.CommercialBuilding;
-			LegalForm = itemToEdit.HouseBase.LegalForm;
-			ResidentialBuildings = itemToEdit.HouseBase.ResidentialBuldings;
-			City = itemToEdit.HouseBase.HouseAdress.City;
-			Country_ = itemToEdit.HouseBase.HouseAdress.Country;
-			Street = itemToEdit.HouseBase.HouseAdress.StreetName;
-			Zip = itemToEdit.HouseBase.HouseAdress.ZipCode;
-			Console.WriteLine("ITEM EDIT");
+			Category = itemToEdit.Category;
+			Width = itemToEdit.Width;
+			PrefabName = itemToEdit.PrefabName;
+			Heigth = itemToEdit.Height;
 		}
 
 		List<string> searchWords = new List<string>();
@@ -179,8 +182,8 @@ namespace Assignment_1a.ViewModels
 
 			var viewModelItem = e.Item as HouseRepresentationViewModel;
 			string totalItemString = viewModelItem.Category +
-								viewModelItem.CommercialBuilding + viewModelItem.ID +
-								viewModelItem.LegalForm + viewModelItem.ResidentialBuildings + viewModelItem.City + viewModelItem.Country_.ToString() + viewModelItem.Street + viewModelItem.Zip;
+								viewModelItem.Height + viewModelItem.ID +
+								viewModelItem.PrefabName + viewModelItem.Width;
 			foreach (var word in words)
 			{
 				Console.WriteLine(word);
@@ -222,8 +225,7 @@ namespace Assignment_1a.ViewModels
 		void FinishEdit()
 		{
 			Console.WriteLine(HouseViewModel.HouseBase.Category);
-			HouseViewModel.EditValues(_id, _legalForm, _residentialBuildings, _commercialBuilding, _imageFilePath, _category,
-				_street, _zip, _city, _country);
+			HouseViewModel.EditValues(_id, __prefabName, _height, _width, _imageFilePath, _category);
 			HouseViewModel.EditMode = false;
 		}
 
@@ -232,12 +234,12 @@ namespace Assignment_1a.ViewModels
 			var h = new HouseRepresentationViewModel();
 			h.HouseBase = new House(_id)
 			{
-				HouseAdress = new Adress(Street, Zip, City, Country_),
+
 				Image = _imageFilePath,
 				Category = _category,
-				ResidentialBuldings = _residentialBuildings,
-				CommercialBuilding = _commercialBuilding,
-				LegalForm = _legalForm
+				Height = _height,
+				Width = _width,
+				PrefabName = __prefabName,
 			};
 			Houses.Add(h);
 		}

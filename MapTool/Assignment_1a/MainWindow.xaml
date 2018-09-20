@@ -40,17 +40,6 @@
 
 	</Window.Resources>
 	<DockPanel DataContext="{StaticResource MainViewModel}" Margin="0,40,0,0" Background="#77474747">
-		<StackPanel Width="Auto" MinWidth="300" DockPanel.Dock="Left" Background="LightGray" Margin="10">
-			<Label Content="Search" Foreground="White" Background="#474747" Height="24" />
-			<TextBox Text="{Binding SearchFilter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-			<ListView  ItemsSource="{Binding CollectionView}" SelectedItem="{Binding HouseViewModel, Mode=TwoWay}">
-				<ListView.ItemTemplate>
-					<DataTemplate DataType="{x:Type Views:HouseRepresentationView}">
-						<Views:HouseRepresentationView DataContext="{Binding}"/>
-					</DataTemplate>
-				</ListView.ItemTemplate>
-			</ListView>
-		</StackPanel>
 		<StackPanel Margin="10" DockPanel.Dock="Left" Background="#CC474747" HorizontalAlignment="Left">
 			<Label Height="24">
 				<Label.Style>
@@ -83,49 +72,26 @@
 				</Grid.ColumnDefinitions>
 				<TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Object Info" Background="#77474747" Height="24" Style="{StaticResource HeaderTextBlockStyle}"/>
 				<StackPanel Grid.Row="1" Grid.Column="0" >
-					<TextBlock Text="Category" Height="24"/>
-					<TextBlock Text="Dimensions"  Height="24"/>
 					<TextBlock Text="Prefab Name"  Height="24"/>
-					<TextBlock Text="Legal Form"  Height="24"/>
-					<TextBlock Text="ID"  Height="24"/>
+					<TextBlock Text="Category" Height="24"/>
+					<TextBlock Text="Width"  Height="24"/>
+					<TextBlock Text="Height"  Height="24"/>
+
+
 				</StackPanel>
 				<StackPanel  Grid.Row="1" Grid.Column="1">
+					<TextBox Text="{Binding PrefabName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="100" Height="24"/>
+
 					<ComboBox  SelectedItem="{Binding Category, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" Height="24">
 						<ComboBoxItem Content="Building"/>
 						<ComboBoxItem Content="NPC"/>
 						<ComboBoxItem Content="Vegetation"/>
 					</ComboBox>
-					<ComboBox SelectedItem="{Binding ResidentialBuildings, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Width="100" Height="24" >
-						<ComboBoxItem Content="Houses"/>
-						<ComboBoxItem Content="Villas"/>
-						<ComboBoxItem Content="Appartments"/>
-						<ComboBoxItem Content="Townhouses"/>
-					</ComboBox>
-					<ComboBox SelectedItem="{Binding CommercialBuilding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" Height="24" >
-						<ComboBoxItem Content="Shops"/>
-						<ComboBoxItem Content="Warehouse"/>
-					</ComboBox>
-					<ComboBox SelectedValue="{Binding LegalForm, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" Height="24" >
-						<ComboBoxItem Content="Rental"/>
-						<ComboBoxItem Content="Ownership"/>
-						<ComboBoxItem Content="Tenement"/>
-					</ComboBox>
-					<TextBox Text="{Binding ID,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="100" Height="24"/>
-				</StackPanel>
-				<!--<TextBlock Grid.Row="2" Grid.ColumnSpan="2" Text="Adress" Background="#77474747" Height="24" Style="{StaticResource HeaderTextBlockStyle}"/>
-				<StackPanel Grid.Row="3" Grid.Column="0" >
-					<TextBlock Text="City" Height="24"/>
-					<TextBlock Text="Street"  Height="24"/>
-					<TextBlock Text="Zip"  Height="24"/>
-					<TextBlock Text="Country" Height="24"/>
-				</StackPanel>
-				<StackPanel Grid.Row="3" Grid.Column="1">
-					<TextBox Text="{Binding Street,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="100" Height="24"/>
-					<TextBox Text="{Binding City,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="100" Height="24"/>
-					<TextBox Text="{Binding Zip,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="100" Height="24"/>
-					<ComboBox SelectedItem="{Binding Country_, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Countries}" Width="100" Height="24" />
+					<TextBox Text="{Binding Width,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="100" Height="24"/>
+					<TextBox Text="{Binding Height,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="100" Height="24"/>
 
-				</StackPanel>-->
+				</StackPanel>
+
 				<TextBlock  Grid.Row="4" Grid.ColumnSpan="2" Text="Image" Background="#77474747" Height="24" Style="{StaticResource HeaderTextBlockStyle}"/>
 				<DockPanel Grid.Row="5" Grid.Column="0">
 					<TextBlock DockPanel.Dock="Left"  Text="File" Height="24"/>
@@ -154,8 +120,19 @@
 				</Button>
 			</Grid>
 		</StackPanel>
-		<Views:MapView Margin="25">
-		</Views:MapView>
 
+		<StackPanel Width="Auto" MinWidth="300" DockPanel.Dock="Left" Background="LightGray" Margin="10">
+			<Label Content="Search" Foreground="White" Background="#474747" Height="24" />
+			<TextBox Text="{Binding SearchFilter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+			<ListView  ItemsSource="{Binding CollectionView}" SelectedItem="{Binding HouseViewModel, Mode=TwoWay}">
+				<ListView.ItemTemplate>
+					<DataTemplate DataType="{x:Type Views:HouseRepresentationView}">
+						<Views:HouseRepresentationView DataContext="{Binding}"/>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</StackPanel>
+		
+		<Views:MapView DataContext="{Binding MapViewModel}" Margin="25"/>
 	</DockPanel>
 </Window>

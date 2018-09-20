@@ -12,6 +12,7 @@ namespace Assignment_1a.Models
 	public class HouseViewModelCollection : ObservableCollection<HouseRepresentationViewModel>
 	{
 		public event EventHandler OnCollectionItemEdited;
+		public event EventHandler OnAddedObjectToMap;
 
 		protected override void OnCollectionChanged(NotifyCollectionChangedEventArgs e)
 		{
@@ -23,6 +24,7 @@ namespace Assignment_1a.Models
 					var itemChanged = (HouseRepresentationViewModel)e.NewItems[0];
 					itemChanged.OnEditHouseHandler += OnEditHouseEvent;
 					itemChanged.OnDeleteHouseHandler += OnDeleteHouseEvent;
+				itemChanged.OnAddObjectToMapHandler += OnAddedObjectToMapEvent;
 				}
 			if (e.Action == NotifyCollectionChangedAction.Remove)
 			{
@@ -35,12 +37,19 @@ namespace Assignment_1a.Models
 		{
 			var item = (HouseRepresentationViewModel)sender;
 			item.OnDeleteHouseHandler -= OnDeleteHouseEvent;
+			item.OnAddObjectToMapHandler -= OnAddedObjectToMapEvent;
 			Remove(item);
 		}
 
 		private void OnEditHouseEvent(object sender, EventArgs e)
 		{
 			OnCollectionItemEdited.Invoke(sender, e);
+			var item = (HouseRepresentationViewModel)sender;
+		}
+
+		private void OnAddedObjectToMapEvent(object sender, EventArgs e)
+		{
+			OnAddedObjectToMap.Invoke(sender, e);
 			var item = (HouseRepresentationViewModel)sender;
 		}
 	}

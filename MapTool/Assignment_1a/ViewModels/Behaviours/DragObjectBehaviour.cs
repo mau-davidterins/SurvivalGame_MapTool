@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assignment_1a.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -72,7 +73,7 @@ namespace Assignment_1a.ViewModels.Behaviours
 		{
 			((UIElement)sender).ReleaseMouseCapture();
 			Console.WriteLine(sender.GetType());
-			var s = (Rectangle)sender;
+			var s = (MapObjectView)sender;
 			Console.WriteLine(s.DataContext.GetType());
 			var k = (MapObjectViewModel)s.DataContext;
 

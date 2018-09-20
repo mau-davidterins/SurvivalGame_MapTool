@@ -14,6 +14,7 @@ namespace Assignment_1a.ViewModels
 	{
 		public event EventHandler OnEditHouseHandler;
 		public event EventHandler OnDeleteHouseHandler;
+		public event EventHandler OnAddObjectToMapHandler;
 
 		public string Category
 		{
@@ -24,41 +25,33 @@ namespace Assignment_1a.ViewModels
 			}
 		}
 
-		public string ResidentialBuildings
+		public int Width
 		{
-			get => HouseBase.ResidentialBuldings; private set
+			get => HouseBase.Width; private set
 			{
-				HouseBase.ResidentialBuldings = value;
-				OnPropertyChanged(nameof(ResidentialBuildings));
+				HouseBase.Width = value;
+				OnPropertyChanged(nameof(Width));
 			}
 		}
 
-		public string CommercialBuilding
+		public int Height
 		{
-			get => HouseBase.CommercialBuilding; private set
+			get => HouseBase.Height; private set
 			{
-				HouseBase.CommercialBuilding = value;
-				OnPropertyChanged(nameof(CommercialBuilding));
+				HouseBase.Height = value;
+				OnPropertyChanged(nameof(Height));
 			}
 		}
 
-		public string LegalForm
+		public string PrefabName
 		{
-			get => HouseBase.LegalForm; private set
+			get => HouseBase.PrefabName; private set
 			{
-				HouseBase.LegalForm = value; OnPropertyChanged(nameof(LegalForm));
+				HouseBase.PrefabName = value; OnPropertyChanged(nameof(PrefabName));
 			}
 		}
 
 		public string ImageFilePath { get { return HouseBase.Image; } private set { HouseBase.Image = value; OnPropertyChanged(nameof(ImageFilePath)); } }
-
-		public string City { get { return HouseBase.HouseAdress.City; } private set { HouseBase.HouseAdress.City = value; OnPropertyChanged(nameof(City)); } }
-
-		public int? Zip { get { return HouseBase.HouseAdress.ZipCode; } private set { HouseBase.HouseAdress.ZipCode = value; OnPropertyChanged(nameof(Zip)); } }
-
-		public Country Country_ { get { return HouseBase.HouseAdress.Country; } private set { HouseBase.HouseAdress.Country = value; OnPropertyChanged(nameof(Country_)); } }
-
-		public string Street { get { return HouseBase.HouseAdress.StreetName; } private set { HouseBase.HouseAdress.StreetName = value; OnPropertyChanged(nameof(Street)); } }
 
 		string _id;
 		public string ID { get => _id; set { _id = value; OnPropertyChanged(nameof(ID)); } }
@@ -67,6 +60,7 @@ namespace Assignment_1a.ViewModels
 
 		public ICommand DeleteCommand { get; set; }
 		public ICommand EditCommand { get; set; }
+		public ICommand AddObjectCommand { get; set; }
 
 		bool _editMode;
 		public bool EditMode { get { return _editMode; } set { _editMode = value; OnPropertyChanged(nameof(EditMode)); } }
@@ -76,22 +70,28 @@ namespace Assignment_1a.ViewModels
 		{
 			DeleteCommand = new ActionCommand(Delete);
 			EditCommand = new ActionCommand(Edit);
+			AddObjectCommand = new ActionCommand(AddObjectToMap);
 		}
 
-		public void EditValues(string id, string legalForm, string residentialBuilding, string commercialBuilding, string image, string category,
-		string street, int? zipCode, string city, Country country)
+		public void EditValues(string id, string prefabName, int width, int height, string image, string category)
 		{
 
 			ImageFilePath = image;
-			LegalForm = legalForm;
-			ResidentialBuildings = residentialBuilding;
-			CommercialBuilding = commercialBuilding;
+			PrefabName = prefabName;
+			Width = width;
+			Height = height;
 			Category = category;
+		}
 
-			Street = street;
-			Zip = zipCode;
-			City = city;
-			Country_ = country;
+		public MapObjectViewModel ConvertToMapObject()
+		{
+			var mapObject = new MapObjectViewModel();
+			mapObject.PosX = 0;
+			mapObject.PosY = 0;
+			mapObject.Width = Width;
+			mapObject.Height = Height;
+			mapObject.Image = ImageFilePath;
+			return mapObject;
 		}
 
 		void Delete()
@@ -103,8 +103,12 @@ namespace Assignment_1a.ViewModels
 			EditMode = true;
 			OnEditHouseHandler.Invoke(this, EventArgs.Empty);
 		}
+		void AddObjectToMap()
+		{
+			OnAddObjectToMapHandler.Invoke(this, EventArgs.Empty);
+		}
 
-	
+
 
 
 

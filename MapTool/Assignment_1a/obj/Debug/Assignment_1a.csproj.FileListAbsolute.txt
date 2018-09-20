@@ -89,3 +89,6 @@ C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1
 C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Assignment_1a.csproj.CoreCompileInputs.cache
 C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Assignment_1a.exe
 C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Assignment_1a.pdb
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Assignment_1a.csprojResolveAssemblyReference.cache
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Views\MapObjectView.g.cs
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Views\MapObjectView.baml

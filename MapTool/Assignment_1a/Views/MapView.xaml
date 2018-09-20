@@ -15,31 +15,30 @@
 	<UserControl.Resources>
 		
 	</UserControl.Resources>
-	<UserControl.DataContext>
-		<ViewModels:MapViewModel/>
-	</UserControl.DataContext>
+	<!--<UserControl.DataContext>
+		--><!--<ViewModels:MapViewModel/>--><!--
+	</UserControl.DataContext>-->
 	<DockPanel Background="LightGray" Height="Auto" Width="Auto">
 		<Grid>
 			<ItemsControl x:Name="ic" ItemsSource="{Binding Items}">
 
 				<ItemsControl.ItemsPanel>
 					<ItemsPanelTemplate>
-						<Canvas IsItemsHost="True" Name="TheCanvas"/>
+						<Canvas IsItemsHost="True" Name="TheCanvas" ClipToBounds="True"/>
 					</ItemsPanelTemplate>
 				</ItemsControl.ItemsPanel>
 				<ItemsControl.ItemTemplate>
 					<DataTemplate DataType="{x:Type ViewModels:MapObjectViewModel}">
-						<Rectangle
+						<Views:MapObjectView
 							Canvas.Top="{Binding Top, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Canvas.Left="{Binding Left, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
-							Behaviours:DragObjectBehaviour.Drag="True" Stroke="Green"
-							Fill="White"
+							Behaviours:DragObjectBehaviour.Drag="True" 
 							Width="{Binding Width}" Height="{Binding Height}">
-							<Rectangle.RenderTransform>
+							<Views:MapObjectView.RenderTransform>
 								<TranslateTransform 
 									X="{Binding PosX, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
 									Y="{Binding PosY, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-							</Rectangle.RenderTransform>
-						</Rectangle>
+							</Views:MapObjectView.RenderTransform>
+						</Views:MapObjectView>
 					</DataTemplate>
 				</ItemsControl.ItemTemplate>
 			</ItemsControl>
