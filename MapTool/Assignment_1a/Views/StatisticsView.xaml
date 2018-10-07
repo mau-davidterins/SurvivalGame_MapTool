@@ -88,7 +88,9 @@
 										 BorderBrush="{x:Null}" 
 										 Background="#FF1B6A7C"
 										 VerticalContentAlignment="Center"
-										 Height="40" Width="100" Padding="10" Margin="0,0,30,0" Content="Get stats"/>
+										 Height="40" Width="100" Padding="10" Margin="0,0,30,0" 
+										 Command="{Binding GetStatsCommand}"
+										 Content="Get stats"/>
 
 					</DockPanel>
 				</StackPanel>
@@ -96,7 +98,7 @@
 		</StackPanel>
 
 		<ScrollViewer Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" VerticalScrollBarVisibility="Hidden">
-			<ListBox Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" DockPanel.Dock="Left" ItemsSource="{Binding Items}">
+			<ListBox Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" DockPanel.Dock="Left">
 				<ListBox.Template>
 					<ControlTemplate>
 						<WrapPanel IsItemsHost="True"/>
@@ -113,7 +115,7 @@
 						<materialDesign:Card Padding="10" Margin="10" MinWidth="100" MinHeight="90">
 							<StackPanel>
 								<Label FontSize="16">Average playTime:</Label>
-								<TextBlock HorizontalAlignment="Center" FontSize="40" Text="24 m"/>
+								<TextBlock HorizontalAlignment="Center" FontSize="40" Text="{Binding AverageGameTime, UpdateSourceTrigger=PropertyChanged}"/>
 							</StackPanel>
 						</materialDesign:Card>
 					</StackPanel>

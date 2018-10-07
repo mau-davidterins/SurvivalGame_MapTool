@@ -80,6 +80,7 @@
     <Compile Include="Models\Logging\LogStatus.cs" />
     <Compile Include="Models\MainMenuItemModel.cs" />
     <Compile Include="Services\LogFileDeserializer.cs" />
+    <Compile Include="Services\StatisticsCalculator.cs" />
     <Compile Include="ViewModels\Commands\ActionCommand.cs" />
     <Compile Include="ViewModels\Commands\RelayCommand.cs" />
     <Compile Include="ViewModels\Converters\ImagePathConverter.cs" />
