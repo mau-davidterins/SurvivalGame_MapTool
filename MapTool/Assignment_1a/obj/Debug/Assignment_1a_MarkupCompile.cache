@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\App.xaml
-4957560625
+3-1991340057
 
-221430588105
-151984215308
-MainWindow.xaml;Views\HouseRepresentationView.xaml;Views\MapObjectView.xaml;Views\MapView.xaml;
+231441447337
+202128352167
+Views\ImportFileView.xaml;Views\MainWindowView.xaml;Views\StatisticsView.xaml;
 
 False
 
