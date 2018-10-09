@@ -11,25 +11,25 @@ using System.Xml.Serialization;
 [Serializable]
 public class LogFileModel
 {
-	public string FileName;
+    public string LogFileName;
 
-  public List<GameSessionModel> Log = new List<GameSessionModel>();
+    public List<GameSessionModel> Log = new List<GameSessionModel>();
 
-  public LogFileModel(){}
+    public LogFileModel() { }
 
-  public void AddGameSessionToFile(GameSessionModel gameSession)
-  {
-    Log.Add(gameSession);
-  }
-
-  public void SerializeLogToXML(string folderPath)
-  {
-    using (var stream = new FileStream(folderPath, FileMode.OpenOrCreate, FileAccess.ReadWrite))
+    public void AddGameSessionToFile(GameSessionModel gameSession)
     {
-      XmlSerializer serializer = new XmlSerializer(typeof(LogFileModel));
-      serializer.Serialize(stream, this);
+        Log.Add(gameSession);
     }
-  }
+
+    public void SerializeLogToXML(string folderPath)
+    {
+        using (var stream = new FileStream(folderPath, FileMode.OpenOrCreate, FileAccess.ReadWrite))
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(LogFileModel));
+            serializer.Serialize(stream, this);
+        }
+    }
 }
 
 /// <summary>
@@ -39,14 +39,14 @@ public class LogFileModel
 [Serializable]
 public class GameSessionModel
 {
-  public List<LogStatus> GameSession = new List<LogStatus>();
-	//PlayerName
-  public int SessionNumber { get; set; }
-  public string SessionDate { get; set; }
+    public List<LogStatus> GameSession = new List<LogStatus>();
+    public string PlayerName { get; set; }
+    public int SessionNumber { get; set; }
+    public string SessionDate { get; set; }
 
-  public void NewLogStatus(LogStatus status)
-  {
-    GameSession.Add(status);
-  }
+    public void NewLogStatus(LogStatus status)
+    {
+        GameSession.Add(status);
+    }
 }
 

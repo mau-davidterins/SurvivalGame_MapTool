@@ -30,5 +30,6 @@ namespace Assignment_1a.Views
 		{
 			var s = DataContext;
 		}
-	}
+
+    }
 }

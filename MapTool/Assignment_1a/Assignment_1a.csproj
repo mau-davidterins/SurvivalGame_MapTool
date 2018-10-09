@@ -75,6 +75,7 @@
     </ApplicationDefinition>
     <Compile Include="Helper.cs" />
     <Compile Include="Models\ChartModel.cs" />
+    <Compile Include="Models\CheckableLogFileModel.cs" />
     <Compile Include="Models\FileListItemModel.cs" />
     <Compile Include="Models\Logging\LogFileModel.cs" />
     <Compile Include="Models\Logging\LogStatus.cs" />

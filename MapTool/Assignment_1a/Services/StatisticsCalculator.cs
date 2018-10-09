@@ -88,6 +88,11 @@ namespace Assignment_1a.Services
 				_steel += status.Steel;
 				_population += status.Population;
 			}
+             _oil = _oil / allStatuses;
+            _wood = _wood / allStatuses;
+            _water = _water / allStatuses;
+            _steel = _steel / allStatuses;
+            _population = _population / allStatuses;
 
 			ObservableCollection<ChartModel> temp = new ObservableCollection<ChartModel>
 			{
