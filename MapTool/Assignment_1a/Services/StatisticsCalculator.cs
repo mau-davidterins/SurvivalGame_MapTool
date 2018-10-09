@@ -105,5 +105,39 @@ namespace Assignment_1a.Services
 
 			return temp;
 		}
+
+		public ObservableCollection<ChartModel> GetAverageResourceChartAtCheckPoint(int selectedCheckPoint)
+		{
+			int _oil = 0, _wood = 0, _water = 0, _steel = 0, _population = 0;
+			int allStatuses = _totalStatuses.Count;
+			foreach (LogStatus status in _totalStatuses)
+			{
+				if(status.CheckPoint == selectedCheckPoint)
+				{
+					_oil += status.Oil;
+					_wood += status.Wood;
+					_water += status.Water;
+					_steel += status.Steel;
+					_population += status.Population;
+				}
+				
+			}
+			_oil = _oil / allStatuses;
+			_wood = _wood / allStatuses;
+			_water = _water / allStatuses;
+			_steel = _steel / allStatuses;
+			_population = _population / allStatuses;
+
+			ObservableCollection<ChartModel> temp = new ObservableCollection<ChartModel>
+			{
+				new ChartModel("Oil", _oil),
+				new ChartModel("Wood", _wood),
+				new ChartModel("Water", _water),
+				new ChartModel("Steel", _steel),
+				new ChartModel("Population", _population)
+			};
+
+			return temp;
+		}
 	}
 }

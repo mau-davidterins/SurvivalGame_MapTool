@@ -5,7 +5,8 @@ using System;
 [Serializable]
 public class LogStatus
 {
-
+	//int CheckPoint = logStatus number * 3, logged every 3rd minute;
+	public int CheckPoint { get; set; }
   public LogType LogType { get; set; }
   public string TimeString { get; set; }
   public int Steel { get; set; }

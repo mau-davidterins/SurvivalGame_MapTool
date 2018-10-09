@@ -23,7 +23,7 @@ namespace Assignment_1a.ViewModels.ChartViewModels
 		public ChartBase(List<LogFileModel> logDataFiles)
 		{
 			_statisticsCalculator = new StatisticsCalculator();
-			EditInfoViewModel = new ChartEditInfoViewModel(ref logDataFiles);
+			EditInfoViewModel = new ChartEditInfoViewModel(this, ref logDataFiles, ref _statisticsCalculator);
 			_chartDataModelCollection = new ObservableCollection<ChartModel>();
 			SetLogFileData(logDataFiles);
 			DeleteCommand = new ActionCommand(Delete);
@@ -36,6 +36,7 @@ namespace Assignment_1a.ViewModels.ChartViewModels
 
 
 		public ChartEditInfoViewModel EditInfoViewModel { get; }
+		public string CheckPoint { get; set; }
 		public string ChartType { get; protected set; }
 		public string Title { get { return _title; } set { _title = value; OnPropertyChanged(nameof(Title)); } }
 		public string SubTitle { get { return _subTitle; } set { _subTitle = value; OnPropertyChanged(nameof(SubTitle)); } }
