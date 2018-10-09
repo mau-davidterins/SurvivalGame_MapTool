@@ -13,7 +13,7 @@ namespace Assignment_1a.ViewModels.ChartViewModels
 		public StapleChartViewModel(List<LogFileModel> logDataFiles) : base(logDataFiles)
 		{
 			//chartDataModelCollection = chartDataModels;
-			
+			ChartType = "Staple chart";
 		}
 	}
 
@@ -22,6 +22,7 @@ namespace Assignment_1a.ViewModels.ChartViewModels
 		public DoughnutChartViewModel(List<LogFileModel> logDataFiles) : base(logDataFiles)
 		{
 			//chartDataModelCollection = chartDataModels;
+			ChartType = "Doughnut chart";
 		}
 	}
 }

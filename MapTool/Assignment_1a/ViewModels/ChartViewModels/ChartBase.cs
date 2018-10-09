@@ -12,6 +12,7 @@ using System.Windows.Input;
 
 namespace Assignment_1a.ViewModels.ChartViewModels
 {
+
 	public abstract class ChartBase : ViewModelBase
 	{
 		protected ObservableCollection<ChartModel> _chartDataModelCollection;
@@ -22,6 +23,7 @@ namespace Assignment_1a.ViewModels.ChartViewModels
 		public ChartBase(List<LogFileModel> logDataFiles)
 		{
 			_statisticsCalculator = new StatisticsCalculator();
+			EditInfoViewModel = new ChartEditInfoViewModel(ref logDataFiles);
 			_chartDataModelCollection = new ObservableCollection<ChartModel>();
 			SetLogFileData(logDataFiles);
 			DeleteCommand = new ActionCommand(Delete);
@@ -32,6 +34,9 @@ namespace Assignment_1a.ViewModels.ChartViewModels
 		public event EventHandler OnItemFinsihedEditEvent;
 		public event EventHandler OnItemEditEvent;
 
+
+		public ChartEditInfoViewModel EditInfoViewModel { get; }
+		public string ChartType { get; protected set; }
 		public string Title { get { return _title; } set { _title = value; OnPropertyChanged(nameof(Title)); } }
 		public string SubTitle { get { return _subTitle; } set { _subTitle = value; OnPropertyChanged(nameof(SubTitle)); } }
 
@@ -48,7 +53,6 @@ namespace Assignment_1a.ViewModels.ChartViewModels
 			_chartDataModelCollection = _statisticsCalculator.GetAverageResourceChart();
 		}
 
-
 		protected void Delete()
 		{
 			Console.WriteLine("Delete");
@@ -64,26 +68,25 @@ namespace Assignment_1a.ViewModels.ChartViewModels
 		{
 			Console.WriteLine("Edit");
 			OnItemEditEvent.Invoke(this, new EventArgs());
-		
+
 		}
 	}
 
 	public class ChartCollection : ObservableCollection<ChartBase>
 	{
-
 		public event EventHandler<ChartBase> OnItemEdit;
 
 		protected override void OnCollectionChanged(NotifyCollectionChangedEventArgs e)
 		{
-		
-			if(e.Action == NotifyCollectionChangedAction.Add)
+
+			if (e.Action == NotifyCollectionChangedAction.Add)
 			{
 				ChartBase newChart = (ChartBase)e.NewItems[0];
 				newChart.OnDeleteItemEvent += NewChart_OnDeleteItemEvent;
 				newChart.OnItemFinsihedEditEvent += NewChart_OnItemFinishedEditEvent;
 				newChart.OnItemEditEvent += NewChart_OnItemEditEvent;
 			}
-			if(e.Action == NotifyCollectionChangedAction.Remove)
+			if (e.Action == NotifyCollectionChangedAction.Remove)
 			{
 				ChartBase newChart = (ChartBase)e.OldItems[0];
 				newChart.OnDeleteItemEvent -= NewChart_OnDeleteItemEvent;
@@ -91,10 +94,7 @@ namespace Assignment_1a.ViewModels.ChartViewModels
 				newChart.OnItemEditEvent -= NewChart_OnItemEditEvent;
 
 			}
-			if (e.Action == NotifyCollectionChangedAction.Replace)
-			{
-				
-			}
+
 			base.OnCollectionChanged(e);
 		}
 
@@ -112,7 +112,7 @@ namespace Assignment_1a.ViewModels.ChartViewModels
 
 		private void NewChart_OnItemFinishedEditEvent(object sender, EventArgs e)
 		{
-				
+
 		}
 
 		private void NewChart_OnDeleteItemEvent(object sender, EventArgs e)

@@ -77,12 +77,15 @@
     <Compile Include="Models\ChartModel.cs" />
     <Compile Include="Models\CheckableLogFileModel.cs" />
     <Compile Include="Models\FileListItemModel.cs" />
+    <Compile Include="Models\Global\Enums.cs" />
+    <Compile Include="Models\Global\Statics.cs" />
     <Compile Include="Models\Logging\LogFileModel.cs" />
     <Compile Include="Models\Logging\LogStatus.cs" />
     <Compile Include="Models\MainMenuItemModel.cs" />
     <Compile Include="Services\LogFileDeserializer.cs" />
     <Compile Include="Services\StatisticsCalculator.cs" />
     <Compile Include="ViewModels\ChartViewModels\ChartBase.cs" />
+    <Compile Include="ViewModels\ChartViewModels\ChartEditInfoViewModel.cs" />
     <Compile Include="ViewModels\ChartViewModels\StapleChartViewModel.cs" />
     <Compile Include="ViewModels\Commands\ActionCommand.cs" />
     <Compile Include="ViewModels\Commands\RelayCommand.cs" />
@@ -119,7 +122,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Enums\Countries.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

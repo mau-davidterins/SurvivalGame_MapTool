@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 using Assignment_1a.Models;
-using Assignment_1a.Models.Enums;
 using Assignment_1a.ViewModels.Commands;
 using System.Windows.Input;
 using System.Windows.Data;

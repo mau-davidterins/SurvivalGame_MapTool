@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-\\netapp01.mah.se\home\ag8027\My Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\
 Assignment_1a
 none
 false
 DEBUG;TRACE
-\\netapp01.mah.se\home\ag8027\My Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\App.xaml
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\App.xaml
 3-1991340057
 
-27441872020
-20-1818090775
+291526904967
+202128352167
 Views\ImportFileView.xaml;Views\MainWindowView.xaml;Views\StatisticsView.xaml;
 
 False
