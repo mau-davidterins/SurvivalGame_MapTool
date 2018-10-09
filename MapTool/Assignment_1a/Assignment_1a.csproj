@@ -81,6 +81,8 @@
     <Compile Include="Models\MainMenuItemModel.cs" />
     <Compile Include="Services\LogFileDeserializer.cs" />
     <Compile Include="Services\StatisticsCalculator.cs" />
+    <Compile Include="ViewModels\ChartViewModels\ChartBase.cs" />
+    <Compile Include="ViewModels\ChartViewModels\StapleChartViewModel.cs" />
     <Compile Include="ViewModels\Commands\ActionCommand.cs" />
     <Compile Include="ViewModels\Commands\RelayCommand.cs" />
     <Compile Include="ViewModels\Converters\ImagePathConverter.cs" />

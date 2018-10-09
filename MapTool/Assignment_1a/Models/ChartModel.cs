@@ -10,12 +10,12 @@ namespace Assignment_1a.Models
 	public class ChartModel : INotifyPropertyChanged
 	{
 		public string Title { get; set; }
-		public int Percentage { get; set; }
+		public int Value { get; set; }
 
-		public ChartModel(string title, int percentage)
+		public ChartModel(string title, int value)
 		{
 			Title = title;
-			Percentage = percentage;
+			Value = value;
 		}
 
 		public event PropertyChangedEventHandler PropertyChanged;

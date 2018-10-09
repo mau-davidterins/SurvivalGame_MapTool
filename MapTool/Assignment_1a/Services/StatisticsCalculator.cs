@@ -30,9 +30,11 @@ namespace Assignment_1a.Services
 			_logType = logType;
 			_selectedAllOrCustomPlayers = selectedAllOrCustomPlayers;
 			_totalLogFiles = logDataFiles;
-			RetrieveStatuses(RetrieveGameSessions(_totalLogFiles), logType);
 
-			GetAverageGameTime();
+			if(_totalLogFiles != null)
+			{
+				RetrieveStatuses(RetrieveGameSessions(_totalLogFiles), logType);
+			}		
 		}
 
 		List<GameSessionModel> RetrieveGameSessions(List<LogFileModel> logDataFiles)
@@ -76,7 +78,27 @@ namespace Assignment_1a.Services
 
 		public ObservableCollection<ChartModel> GetAverageResourceChart()
 		{
-			return null;
+			int _oil = 0, _wood = 0, _water = 0, _steel = 0, _population = 0;
+			int allStatuses = _totalStatuses.Count;
+			foreach (LogStatus status in _totalStatuses)
+			{
+				_oil += status.Oil;
+				_wood += status.Wood;
+				_water += status.Water;
+				_steel += status.Steel;
+				_population += status.Population;
+			}
+
+			ObservableCollection<ChartModel> temp = new ObservableCollection<ChartModel>
+			{
+				new ChartModel("Oil", _oil),
+				new ChartModel("Wood", _wood),
+				new ChartModel("Water", _water),
+				new ChartModel("Steel", _steel),
+				new ChartModel("Population", _population)
+			};
+
+			return temp;
 		}
 	}
 }

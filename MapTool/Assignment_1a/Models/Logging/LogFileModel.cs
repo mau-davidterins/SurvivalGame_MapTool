@@ -11,9 +11,9 @@ using System.Xml.Serialization;
 [Serializable]
 public class LogFileModel
 {
+	public string FileName;
 
   public List<GameSessionModel> Log = new List<GameSessionModel>();
-
 
   public LogFileModel(){}
 
@@ -40,7 +40,7 @@ public class LogFileModel
 public class GameSessionModel
 {
   public List<LogStatus> GameSession = new List<LogStatus>();
-
+	//PlayerName
   public int SessionNumber { get; set; }
   public string SessionDate { get; set; }
 

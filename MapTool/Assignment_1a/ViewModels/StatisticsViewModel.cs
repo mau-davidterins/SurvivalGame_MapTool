@@ -1,5 +1,6 @@
 ﻿using Assignment_1a.Models;
 using Assignment_1a.Services;
+using Assignment_1a.ViewModels.ChartViewModels;
 using Assignment_1a.ViewModels.Commands;
 using System;
 using System.Collections.Generic;
@@ -13,60 +14,99 @@ namespace Assignment_1a.ViewModels
 {
 	class StatisticsViewModel : PageBase
 	{
-		private readonly StatisticsCalculator _statCalculator;
-
 		List<LogFileModel> _logDataFiles;
-
-		ObservableCollection<ChartModel> _averageStapleChart;
-		ObservableCollection<ChartModel> _chart;
 
 		public StatisticsViewModel()
 		{
-			_statCalculator = new StatisticsCalculator();
-			_chart = new ObservableCollection<ChartModel>
-			{
-				new ChartModel("titulo", 57),
-				new ChartModel("test", 11),
-				new ChartModel("lol", 15)
-			};
-			_averageStapleChart = new ObservableCollection<ChartModel>
-			{
-				new ChartModel("Food",32),
-				new ChartModel("Oil",23),
-				new ChartModel("Metal",52),
-				new ChartModel("Population",3),
-				new ChartModel("Water",11)
-			};
 
-			GetStatsCommand = new ActionCommand(GetStats);
+			chartCollection = new ChartCollection();
+			_selectedLogs = new ObservableCollection<string>();
+
+			chartCollection.OnItemEdit += ChartCollection_OnItemEdit;
+			
+			CreateChartCommand = new ActionCommand(CreateChart);
 		}
+
 		public LogType SelectedLogType { get; set; }
+
+		ChartCollection chartCollection;
+		public ChartCollection ChartCollection { get { return chartCollection; } }
+
+		ObservableCollection<string> _selectedLogs;
+		public ObservableCollection<string> SelectedLogs { get { return _selectedLogs; } set { _selectedLogs = value;OnPropertyChanged(nameof(SelectedLogs)); } }
+
+		bool _hasLogData;
+		public bool HasLogData { get { return _hasLogData; } set { _hasLogData = value; OnPropertyChanged(nameof(HasLogData)); } }
+
+		string _selectedChartType;
+		public string SelectedChartType { get { return _selectedChartType; } set { _selectedChartType = value; OnPropertyChanged(nameof(SelectedChartType)); } }
+
+		string _newChartTitle;
+		public string NewChartTitle { get { return _newChartTitle; } set { _newChartTitle = value; OnPropertyChanged(nameof(NewChartTitle)); } }
+
+		string _newChartSubTitle;
+		public string NewChartSubTitle { get { return _newChartSubTitle; } set { _newChartSubTitle = value; OnPropertyChanged(nameof(NewChartSubTitle)); } }
+
+		string _totalLogs = "0";
+		public string TotalLogs { get { return _totalLogs; } set { _totalLogs = value; OnPropertyChanged(nameof(TotalLogs)); } }
+
+		string _totalGamesPlayed = "0";
+		public string TotalGamesPlayed { get { return _totalGamesPlayed; } set { _totalGamesPlayed = value; OnPropertyChanged(nameof(TotalGamesPlayed)); } }
+
+
+
 		public string SelectedAllOrCustomPlayers { get; set; }
 		public bool OnAllPlayers { get; set; }
 		int _averageGameTime = 0;
 		public int AverageGameTime { get { return _averageGameTime; } set { _averageGameTime = value; OnPropertyChanged(nameof(AverageGameTime)); } }
 
-		public ICommand GetStatsCommand { get; }
-
-		public ObservableCollection<ChartModel> PieChart { get { return _chart; } set { _chart = value; OnPropertyChanged(nameof(PieChart)); } }
-
-		public ObservableCollection<ChartModel> AverageStapleChart { get { return _averageStapleChart; } set { _averageStapleChart = value; OnPropertyChanged(nameof(PieChart)); } }
+		public ICommand CreateChartCommand { get; }
 
 		public void SetWorkingFiles(List<LogFileModel> newLogDataFiles)
 		{
 			_logDataFiles = newLogDataFiles;
+			TotalLogs = newLogDataFiles.Count.ToString();
+			HasLogData = true;
+			int totalGames = 0;
+			foreach (LogFileModel logFile in newLogDataFiles)
+			{
+				SelectedLogs.Add(logFile.FileName);
+			  totalGames += logFile.Log.Count;
+			}
+			TotalGamesPlayed = totalGames.ToString();
 		}
 
-		void GetStats()
+		private void ChartCollection_OnItemEdit(object sender, ChartBase e)
 		{
-			_statCalculator.StatParameters(LogType.Death, SelectedAllOrCustomPlayers, _logDataFiles);
-
-			AverageGameTime = _statCalculator.GetAverageGameTime();
-
-			//AverageStapleChart = _statCalculator.GetAverageResourceChart();
-
-			Console.WriteLine("GetStats");
+			NewChartTitle = e.Title;
+			NewChartSubTitle = e.SubTitle;
+			ChartCollection.Replace(e, new DoughnutChartViewModel(_logDataFiles));
 		}
-		
+
+		void CreateChart()
+		{
+
+			if (SelectedChartType == "System.Windows.Controls.ComboBoxItem: Staple chart")
+			{
+				ChartCollection.Add(new StapleChartViewModel(_logDataFiles)
+				{
+					Title = NewChartTitle,
+					SubTitle = NewChartSubTitle,
+				});
+			}
+			else if (SelectedChartType == "System.Windows.Controls.ComboBoxItem: Doughnut chart")
+			{
+				ChartCollection.Add(new DoughnutChartViewModel(_logDataFiles)
+				{
+					Title = NewChartTitle,
+					SubTitle = NewChartSubTitle,
+				});
+			}
+
+			NewChartTitle = "";
+			NewChartSubTitle = "";
+
+		}
+
 	}
 }

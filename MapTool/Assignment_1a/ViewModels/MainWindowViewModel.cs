@@ -60,7 +60,7 @@ namespace Assignment_1a.ViewModels
 				if(itemName == "ChartMenu")
 				{
 					var s = (StatisticsViewModel)_slideMenuItems[itemName].CorrespondingPage;
-					var kl = s.PieChart;
+					//var kl = s.PieChart;
 				}
 				Console.WriteLine("Collapsing " + currentSelectedMenuItem);
 				_slideMenuItems[currentSelectedMenuItem].Deselect();
