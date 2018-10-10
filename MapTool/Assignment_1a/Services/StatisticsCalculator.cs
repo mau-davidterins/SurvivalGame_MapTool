@@ -76,12 +76,13 @@ namespace Assignment_1a.Services
 			return result;
 		}
 
-		public ObservableCollection<ChartModel> GetAverageResourceChart()
+		private ObservableCollection<ChartModel> GetAverageResourceChartOnLostGame()
 		{
 			int _oil = 0, _wood = 0, _water = 0, _steel = 0, _population = 0;
-			int allStatuses = _totalStatuses.Count;
-			foreach (LogStatus status in _totalStatuses)
+			int allStatuses = _totalGameSessions.Count;
+			foreach (GameSessionModel session in _totalGameSessions)
 			{
+				LogStatus status = session.GameSession[session.TotalCheckPoints - 1];
 				_oil += status.Oil;
 				_wood += status.Wood;
 				_water += status.Water;
@@ -106,14 +107,22 @@ namespace Assignment_1a.Services
 			return temp;
 		}
 
-		public ObservableCollection<ChartModel> GetAverageResourceChartAtCheckPoint(int selectedCheckPoint)
+		public ObservableCollection<ChartModel> GetAverageResourceChartAtCheckPoint(string selectedCheckPoint)
 		{
+			if(selectedCheckPoint == "GameOver")
+			{
+				return GetAverageResourceChartOnLostGame();
+			}
+
+			int checkPoint = int.Parse(selectedCheckPoint);
+
 			int _oil = 0, _wood = 0, _water = 0, _steel = 0, _population = 0;
-			int allStatuses = _totalStatuses.Count;
+			int allStatuses = 0;
 			foreach (LogStatus status in _totalStatuses)
 			{
-				if(status.CheckPoint == selectedCheckPoint)
+				if(status.CheckPoint == checkPoint)
 				{
+					allStatuses += 1;
 					_oil += status.Oil;
 					_wood += status.Wood;
 					_water += status.Water;

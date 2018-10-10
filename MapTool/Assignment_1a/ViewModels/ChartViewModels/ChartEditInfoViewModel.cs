@@ -25,10 +25,35 @@ namespace Assignment_1a.ViewModels.ChartViewModels
 
 		public ICommand ApplyChangesCommand { get; }
 
-		string _selectedCheckPoint;
+		string _selectedCheckPoint = "GameOver";
 		public string SelectedCheckPoint { get { return _selectedCheckPoint; } set { _selectedCheckPoint = value.Substring(value.IndexOf(':') + 1); _parent.CheckPoint = _selectedCheckPoint; OnPropertyChanged(nameof(SelectedCheckPoint)); } }
 
+		public List<string> TotalCheckPoints { get { return GetTotalCheckPointRange(); } }
+
 		public List<string> ContainingLogFileNames { get { return GetLogFileNames(); } }
+
+		List<string> GetTotalCheckPointRange()
+		{
+			List<string> range = new List<string>();
+
+			int maxCheckPoint = 0;
+			foreach(LogFileModel file in _logDataFiles)
+			{
+				foreach(GameSessionModel gameSession in file.Log)
+				{
+					if(gameSession.TotalCheckPoints > maxCheckPoint)
+					{
+						maxCheckPoint = gameSession.TotalCheckPoints;
+					}
+				}
+			}
+			for (int i = 1; i <= maxCheckPoint; i++)
+			{
+				range.Add(i.ToString());
+			}
+			range.Add("GameOver");
+			return range;
+		}
 
 		List<string> GetLogFileNames()
 		{
@@ -44,7 +69,9 @@ namespace Assignment_1a.ViewModels.ChartViewModels
 		{
 			//Recalculate based on SelectedCheckPoint.
 			Console.WriteLine("Apply");
-			//_statisticsCalculator.GetAverageResourceChartAtCheckPoint(_selectedCheckPoint.ToInt());
+		
+		
+			_parent.ChartDataModelCollection = _statisticsCalculator.GetAverageResourceChartAtCheckPoint(_selectedCheckPoint);
 		}
 
 

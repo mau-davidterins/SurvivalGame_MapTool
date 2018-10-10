@@ -46,12 +46,14 @@ namespace Assignment_1a.ViewModels.ChartViewModels
 		public ICommand FinsishEditCommand { get; }
 		public ICommand CancelEditCommand { get; }
 
-		public ObservableCollection<ChartModel> ChartDataModelCollection { get { return _chartDataModelCollection; } }
+		public ObservableCollection<ChartModel> ChartDataModelCollection { get { return _chartDataModelCollection; }
+			set { _chartDataModelCollection = value;
+				OnPropertyChanged(nameof(ChartDataModelCollection)); } }
 
 		public virtual void SetLogFileData(List<LogFileModel> logDataFiles)
 		{
-			_statisticsCalculator.StatParameters(LogType.Death, "", logDataFiles);
-			_chartDataModelCollection = _statisticsCalculator.GetAverageResourceChart();
+			_statisticsCalculator.StatParameters(LogType.Regular, "", logDataFiles);
+			_chartDataModelCollection = _statisticsCalculator.GetAverageResourceChartAtCheckPoint("GameOver");
 		}
 
 		protected void Delete()

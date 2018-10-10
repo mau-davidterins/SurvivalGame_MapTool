@@ -138,16 +138,9 @@
 														</StackPanel>
 														<StackPanel MinWidth="300" Margin="10,0,0,0" Grid.Column="1">
 															<TextBlock Text="At Checkpoint"/>
-															<ComboBox SelectedValue="{Binding EditInfoViewModel.SelectedCheckPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
-																<ComboBoxItem Content="3 min"/>
-																<ComboBoxItem Content="6 min"/>
-																<ComboBoxItem Content="9 min"/>
-																<ComboBoxItem Content="12 min"/>
-																<ComboBoxItem Content="15 min"/>
-																<ComboBoxItem Content="18 min"/>
-																<ComboBoxItem Content="21 min"/>
-																<ComboBoxItem Content="24 min"/>
-																<ComboBoxItem IsSelected="True" Content="GameOver"/>
+															<ComboBox ItemsSource="{Binding EditInfoViewModel.TotalCheckPoints}"
+																SelectedValue="{Binding EditInfoViewModel.SelectedCheckPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+														
 															</ComboBox>
 															<Button VerticalAlignment="Bottom" Content="Apply" Margin="10" BorderBrush="{x:Null}" Background="#FF4CB04C" 
 																			Command="{Binding EditInfoViewModel.ApplyChangesCommand}">
@@ -169,11 +162,15 @@
 									<Button Margin="5" BorderBrush="{x:Null}" Height="30" Width="50" Background="Red" Command="{Binding DeleteCommand}">
 										<materialDesign:PackIcon Kind="Delete"/>
 									</Button>
+									<StackPanel Margin="5" Orientation="Horizontal"  Height="30">
+										<Label Foreground="LightGray" FontSize="12" Content="At Checkpoint"/>
+										<Label Foreground="LightGray" FontSize="12"
+										Content="{Binding EditInfoViewModel.SelectedCheckPoint, UpdateSourceTrigger=PropertyChanged}"/>
 
-									<Label Foreground="LightGray" FontSize="14" Margin="5" Height="30"
-										Content="{Binding EditInfoViewModel.SelectedCheckPoint, StringFormat=Checkpoint: {0}, UpdateSourceTrigger=PropertyChanged}"/>
-								
-								</StackPanel>
+
+									</StackPanel>
+	
+																	</StackPanel>
 								<metroChart:ClusteredColumnChart DockPanel.Dock="Top" Foreground="white" Background="{x:Null}"
 																								 ChartTitle="{Binding Title}" ChartSubTitle="{Binding SubTitle}">
 									<metroChart:ClusteredColumnChart.Series>
@@ -207,7 +204,8 @@
 						ItemsSource="{Binding ChartDataModelCollection, UpdateSourceTrigger=PropertyChanged}"
 						DisplayMember="Title"
 						SeriesTitle="Title"
-						ValueMember="Value"/>
+						ValueMember="Value">
+										</metroChart:ChartSeries>
 									</metroChart:DoughnutChart.Series>
 								</metroChart:DoughnutChart>
 							</DockPanel>
