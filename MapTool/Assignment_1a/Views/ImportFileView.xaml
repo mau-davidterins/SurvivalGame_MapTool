@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+						 xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              xmlns:local="clr-namespace:Assignment_1a.Views"
 						 xmlns:m="clr-namespace:Assignment_1a.Models"
              mc:Ignorable="d" 
@@ -62,9 +63,9 @@
 							</Grid>
 						</DataTemplate>
 					</ListView.ItemTemplate>
-				
+
 				</ListView>
-			
+
 			</StackPanel>
 		</Grid>
 	</DockPanel>

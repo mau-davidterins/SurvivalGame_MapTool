@@ -131,3 +131,42 @@ C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1
 \\netapp01.mah.se\home\ag8027\My Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Assignment_1a.exe
 \\netapp01.mah.se\home\ag8027\My Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Assignment_1a.pdb
 \\netapp01.mah.se\home\ag8027\My Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Assignment_1a.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\bin\Debug\Assignment_1a.exe.config
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\bin\Debug\Assignment_1a.exe
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\bin\Debug\Assignment_1a.pdb
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\bin\Debug\De.TorstenMandelkow.MetroChart.dll
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\bin\Debug\MaterialDesignColors.dll
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\bin\Debug\Microsoft.Expression.Interactions.dll
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\bin\Debug\Microsoft.Expression.Interactions.xml
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\bin\Debug\System.Windows.Interactivity.xml
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Assignment_1a.csprojAssemblyReference.cache
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\App.baml
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Views\ImportFileView.g.cs
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Views\MainWindowView.g.cs
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Views\StatisticsView.g.cs
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\App.g.cs
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Assignment_1a_MarkupCompile.cache
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Assignment_1a_MarkupCompile.lref
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Views\ImportFileView.baml
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Views\MainWindowView.baml
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Views\StatisticsView.baml
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Assignment_1a.g.resources
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Assignment_1a.Properties.Resources.resources
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Assignment_1a.csproj.GenerateResource.cache
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Assignment_1a.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Assignment_1a.csproj.CopyComplete
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Assignment_1a.exe
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Assignment_1a.pdb
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\bin\Debug\LiveCharts.dll
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\bin\Debug\LiveCharts.pdb
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\bin\Debug\LiveCharts.xml
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\bin\Debug\LiveCharts.Wpf.xml
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Views\StatsTest.g.cs
+C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Views\StatsTest.baml

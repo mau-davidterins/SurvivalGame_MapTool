@@ -19,7 +19,8 @@ namespace Assignment_1a.ViewModels
 
 		public StatisticsViewModel()
 		{
-			chartCollection = new ChartCollection();
+      _selectedChartTypes = new List<string>();
+      chartCollection = new ChartCollection();
 			_selectedLogs = new ObservableCollection<CheckableLogFileModel>();
 
 			chartCollection.OnItemEdit += ChartCollection_OnItemEdit;
@@ -41,8 +42,13 @@ namespace Assignment_1a.ViewModels
 		bool _hasLogData;
 		public bool HasLogData { get { return _hasLogData; } set { _hasLogData = value; OnPropertyChanged(nameof(HasLogData)); } }
 
-		string _selectedChartType;
-		public string SelectedChartType { get { return _selectedChartType; } set { _selectedChartType = value; OnPropertyChanged(nameof(SelectedChartType)); } }
+    public string SelectedStatisticType { get; set; }
+
+    List<string> _selectedChartTypes;
+    public List<string> SelectableChartTypes { get { return _selectedChartTypes; } set { _selectedChartTypes = value; OnPropertyChanged(nameof(SelectableChartTypes)); } }
+
+    string _selectedChartType;
+		public string SelectedChartType { get { return _selectedChartType; } set { _selectedChartType = value; if (value != null) { SelectableChartTypes = ChartType.ChartTypes[value]; } OnPropertyChanged(nameof(SelectedChartType)); } }
 
 		string _newChartTitle;
 		public string NewChartTitle { get { return _newChartTitle; } set { _newChartTitle = value; OnPropertyChanged(nameof(NewChartTitle)); } }
@@ -121,8 +127,16 @@ namespace Assignment_1a.ViewModels
 					SubTitle = NewChartSubTitle,
 				});
 			}
+      else if (SelectedChartType == ChartType.Line)
+      {
+        ChartCollection.Add(new LineChartViewModel(temp, SelectedStatisticType)
+        {
+          Title = NewChartTitle,
+          SubTitle = NewChartSubTitle,
+        });
+      }
 
-			NewChartTitle = "";
+      NewChartTitle = "";
 			NewChartSubTitle = "";
 
 		}

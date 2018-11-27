@@ -69,8 +69,6 @@ namespace Assignment_1a.ViewModels.ChartViewModels
 		{
 			//Recalculate based on SelectedCheckPoint.
 			Console.WriteLine("Apply");
-		
-		
 			_parent.ChartDataModelCollection = _statisticsCalculator.GetAverageResourceChartAtCheckPoint(_selectedCheckPoint);
 		}
 

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment_1a", "Assignment_1a\Assignment_1a.csproj", "{95ED829A-B64F-438D-BD96-3BFD39B06EE2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OilStatisticTool", "Assignment_1a\OilStatisticTool.csproj", "{95ED829A-B64F-438D-BD96-3BFD39B06EE2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

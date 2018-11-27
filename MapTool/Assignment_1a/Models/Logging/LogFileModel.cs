@@ -39,15 +39,17 @@ public class LogFileModel
 [Serializable]
 public class GameSessionModel
 {
-	public List<LogStatus> GameSession = new List<LogStatus>();
-	public int TotalCheckPoints { get; set; }
+
+  public int TotalCheckPoints { get; set; }
 	public string PlayerName { get; set; }
 	public int SessionNumber { get; set; }
 	public string SessionDate { get; set; }
+  public List<LogStatus> StageChangeLogs = new List<LogStatus>();
+  public List<LogStatus> RegularIntervalLogs = new List<LogStatus>();
 
-	public void NewLogStatus(LogStatus status)
-	{
-		GameSession.Add(status);
-	}
+ // public void NewLogStatus(LogStatus status)
+	//{
+	//	GameSession.Add(status);
+	//}
 }
 

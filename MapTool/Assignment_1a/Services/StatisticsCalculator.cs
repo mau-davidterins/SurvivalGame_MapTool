@@ -52,11 +52,11 @@ namespace Assignment_1a.Services
 			{
 				if (logType == LogType.Regular)
 				{
-					_totalStatuses.AddRange(gameSession.GameSession);
+					_totalStatuses.AddRange(gameSession.RegularIntervalLogs);
 				}
-				else if (logType == LogType.Death)
+				else if (logType == LogType.EndGame)
 				{//Find all statuses when the player has lost which will be the last status of that gameSession.
-					_totalStatuses.Add(gameSession.GameSession[gameSession.GameSession.Count - 1]);
+					_totalStatuses.Add(gameSession.RegularIntervalLogs[gameSession.RegularIntervalLogs.Count - 1]);
 				}
 			}
 		}
@@ -82,7 +82,7 @@ namespace Assignment_1a.Services
 			int allStatuses = _totalGameSessions.Count;
 			foreach (GameSessionModel session in _totalGameSessions)
 			{
-				LogStatus status = session.GameSession[session.TotalCheckPoints - 1];
+				LogStatus status = session.RegularIntervalLogs[session.TotalCheckPoints - 1];
 				_oil += status.Oil;
 				_wood += status.Wood;
 				_water += status.Water;
