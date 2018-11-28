@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>analyticsIcon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="De.TorstenMandelkow.MetroChart, Version=0.9.5818.20693, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ModernUICharts.WPF.Beta.0.9.1\lib\De.TorstenMandelkow.MetroChart.dll</HintPath>
@@ -163,6 +166,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\Behaviours\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\analytics.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="analyticsIcon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -35,3 +35,40 @@ C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\De
 C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Assignment_1a.exe
 C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Assignment_1a.pdb
 C:\Users\User\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\OilStatisticTool.csprojAssemblyReference.cache
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\bin\Debug\Assignment_1a.exe.config
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\bin\Debug\Assignment_1a.exe
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\bin\Debug\Assignment_1a.pdb
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\bin\Debug\De.TorstenMandelkow.MetroChart.dll
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\bin\Debug\LiveCharts.dll
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\bin\Debug\MaterialDesignColors.dll
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\bin\Debug\Microsoft.Expression.Interactions.dll
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\bin\Debug\LiveCharts.pdb
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\bin\Debug\LiveCharts.xml
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\bin\Debug\LiveCharts.Wpf.xml
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\bin\Debug\Microsoft.Expression.Interactions.xml
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\bin\Debug\System.Windows.Interactivity.xml
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\OilStatisticTool.csprojResolveAssemblyReference.cache
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\App.baml
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Views\ImportFileView.g.cs
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Views\MainWindowView.g.cs
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Views\StatisticsView.g.cs
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\App.g.cs
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Assignment_1a_MarkupCompile.cache
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Assignment_1a_MarkupCompile.lref
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Views\ImportFileView.baml
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Views\MainWindowView.baml
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Views\StatisticsView.baml
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Assignment_1a.g.resources
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Assignment_1a.Properties.Resources.resources
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\OilStatisticTool.csproj.GenerateResource.cache
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\OilStatisticTool.csproj.CoreCompileInputs.cache
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\OilStatisticTool.csproj.CopyComplete
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Assignment_1a.exe
+C:\Users\David Terins\Documents\GitHub\SurvivalGame_MapTool\MapTool\Assignment_1a\obj\Debug\Assignment_1a.pdb
