@@ -15,6 +15,9 @@ public class LogStatus
   public int Wood { get; set; }
   public int Water { get; set; }
   public int Population { get; set; }
+  public int CleanFood { get; set; }
+  public int Food { get; set; }
+  public int CleanWater { get; set; }
 
   public LogStatus() { }
 

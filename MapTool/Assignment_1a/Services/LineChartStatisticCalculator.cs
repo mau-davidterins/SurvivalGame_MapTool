@@ -2,9 +2,11 @@
 using LiveCharts.Wpf;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace Assignment_1a.Services
 {
@@ -30,8 +32,11 @@ namespace Assignment_1a.Services
 
       List<float> times = new List<float>();
       float result = 0;
+      int lol = 0;
       foreach (var t in temp)
       {
+        var s = t;
+        int.TryParse(t, out lol);
         float.TryParse(t, out result);
         times.Add(result);
 
@@ -67,7 +72,7 @@ namespace Assignment_1a.Services
       while (index < longestSession)
       {
         int logsWithSameTimeStamp = 0;
-        int totalOil = 0, totalWater = 0, totalSteel = 0, totalPopulation = 0, totalWood = 0;
+        int totalOil = 0, totalWater = 0, totalSteel = 0, totalPopulation = 0, totalWood = 0, totalCleanWater = 0, totalCleanFood = 0, totalFood = 0;
         for (int i = 0; i < orderedStatusesOnGameTimeLength.Count; i++)
         {
           if (index < orderedStatusesOnGameTimeLength[i].Count)
@@ -78,6 +83,9 @@ namespace Assignment_1a.Services
             totalSteel += orderedStatusesOnGameTimeLength[i][index].Steel;
             totalPopulation += orderedStatusesOnGameTimeLength[i][index].Population;
             totalWood += orderedStatusesOnGameTimeLength[i][index].Wood;
+            totalCleanWater += orderedStatusesOnGameTimeLength[i][index].CleanWater;
+            totalCleanFood += orderedStatusesOnGameTimeLength[i][index].CleanFood;
+            totalFood += orderedStatusesOnGameTimeLength[i][index].Food;
           }
         }
 
@@ -86,26 +94,55 @@ namespace Assignment_1a.Services
           totalWater / logsWithSameTimeStamp,
           totalSteel / logsWithSameTimeStamp,
           totalPopulation / logsWithSameTimeStamp,
-          totalWood / logsWithSameTimeStamp);
+          totalWood / logsWithSameTimeStamp,
+          totalCleanWater / logsWithSameTimeStamp,
+          totalCleanFood / logsWithSameTimeStamp,
+          totalFood / logsWithSameTimeStamp);
+        
 
         index++;
       }
 
       var woodSeries = new LineSeries();
       woodSeries.Values = new ChartValues<int>();
+      woodSeries.Stroke = new SolidColorBrush(System.Windows.Media.Color.FromArgb(255, 221, 149, 82));
       woodSeries.Title = "Wood";
+
       var populationSeries = new LineSeries();
       populationSeries.Values = new ChartValues<int>();
+      populationSeries.Stroke = new SolidColorBrush(System.Windows.Media.Color.FromArgb(255, 255, 255, 255));
       populationSeries.Title = "Population";
+
       var steelSeries = new LineSeries();
       steelSeries.Values = new ChartValues<int>();
+      steelSeries.Stroke = new SolidColorBrush(System.Windows.Media.Color.FromArgb(255, 70, 69, 70));
       steelSeries.Title = "Steel";
+
       var waterSeries = new LineSeries();
       waterSeries.Values = new ChartValues<int>();
+      waterSeries.Stroke = new SolidColorBrush(System.Windows.Media.Color.FromArgb(255, 44, 80, 91));
       waterSeries.Title = "Water";
+
       var oilSeries = new LineSeries();
       oilSeries.Values = new ChartValues<int>();
+      oilSeries.Stroke = new SolidColorBrush(System.Windows.Media.Color.FromArgb(255, 0, 0, 0));
       oilSeries.Title = "Oil";
+
+      var foodSeries = new LineSeries();
+      foodSeries.Values = new ChartValues<int>();
+      foodSeries.Stroke = new SolidColorBrush(System.Windows.Media.Color.FromArgb(255, 114, 47, 56));
+      foodSeries.Title = "Food";
+
+      var cleanFoodSeries = new LineSeries();
+      cleanFoodSeries.Values = new ChartValues<int>();
+      cleanFoodSeries.Stroke = new SolidColorBrush(System.Windows.Media.Color.FromArgb(255, 240, 0, 46));
+      cleanFoodSeries.Title = "Food(clean)";
+
+      var cleanWaterSeries = new LineSeries();
+      cleanWaterSeries.Values = new ChartValues<int>();
+      cleanWaterSeries.Stroke = new SolidColorBrush(System.Windows.Media.Color.FromArgb(255, 0, 95, 255));
+      cleanWaterSeries.Title = "Water(clean)";
+
 
       for (int i = 0; i < AvgResourceValuesPerInterval.Length; i++)
       {
@@ -113,6 +150,9 @@ namespace Assignment_1a.Services
         populationSeries.Values.Add(AvgResourceValuesPerInterval[i].PopulationValue);
         steelSeries.Values.Add(AvgResourceValuesPerInterval[i].SteelValue);
         waterSeries.Values.Add(AvgResourceValuesPerInterval[i].WaterValue);
+        cleanWaterSeries.Values.Add(AvgResourceValuesPerInterval[i].CleanWaterValue);
+        foodSeries.Values.Add(AvgResourceValuesPerInterval[i].FoodValue);
+        cleanFoodSeries.Values.Add(AvgResourceValuesPerInterval[i].CleanFoodValue);
         oilSeries.Values.Add(AvgResourceValuesPerInterval[i].OilValue);
       }
 
@@ -120,6 +160,9 @@ namespace Assignment_1a.Services
       refCollection.Add(populationSeries);
       refCollection.Add(steelSeries);
       refCollection.Add(waterSeries);
+      refCollection.Add(cleanWaterSeries);
+      refCollection.Add(foodSeries);
+      refCollection.Add(cleanFoodSeries);
       refCollection.Add(oilSeries);
        
       return AvgResourceValuesPerInterval;
@@ -133,14 +176,20 @@ namespace Assignment_1a.Services
     public int SteelValue { get; }
     public int PopulationValue { get; }
     public int WoodValue { get; }
+    public int CleanFoodValue { get; }
+    public int FoodValue { get; }
+    public int CleanWaterValue { get; }
 
-    public ResourceValueCluster(int oil, int water, int steel, int population, int wood)
+    public ResourceValueCluster(int oil, int water, int steel, int population, int wood, int cleanWater, int cleanFood, int food)
     {
       OilValue = oil;
       WaterValue = water;
       SteelValue = steel;
       PopulationValue = population;
       WoodValue = wood;
+      FoodValue = food;
+      CleanFoodValue = cleanFood;
+      CleanWaterValue = cleanWater;
     }
   }
 
